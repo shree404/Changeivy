@@ -53,4 +53,7 @@ router.get("/goal", function (req, res, next) {
   res.render("goal");
 });
 
+router.get("/task", function (req, res, next) {
+  res.render("task");
+});
 module.exports = router;

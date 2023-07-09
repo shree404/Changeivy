@@ -11,5 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <form action="/goal" method="POST">
+      <div class="mb-3">
+        <label for="updateTask" class="form-label">Update your Task</label>
+        <input
+          type="text"
+          class="form-control"
+          id="updateTask"
+          name="updateTask"
+          required
+        />
+      </div>
+    </form>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </body>
 </html>
