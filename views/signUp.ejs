@@ -12,23 +12,64 @@
       crossorigin="anonymous"
     />
     
-    <form action="#" method="post"> 
-        <label for="first_name">First Name:</label>
-         <input type="text" id="first_name" name="first_name" required><br><br>
-         <label for="last_name">Last Name:</label>
-         <input type="text" id="last_name" name="last_name" required><br><br>
-        
-         <label for="email">Email:</label>
-         <input type="email" id="email" name="email" required><br>
-          We'll never share your email with anyone else.</form><br>
-        
-        <label for="phone">Phone:</label>
-         <input type="tel" id="phone" name="phone" required><br><br>
-         <input type="submit" value="Sign Up">
-
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Sign Up</title>
+      <!-- Include Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha3/css/bootstrap.min.css">
+    </head>
+    <body>
+      <div class="container">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="dob" class="form-label">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" name="dob" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="country" class="form-label">Country:</label>
+            <select class="form-select" id="country" name="country">
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="UK">UK</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+            <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
 
        
-         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+         
     
          
          
