@@ -68,67 +68,51 @@ router.get('/tasks/complete', (req, res) => {
 });
 
 
-// Get all tasks
-// router.get('/tasks', (req, res) => {
-//   Task.find({}, (err, tasks) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Failed to fetch tasks' });
-//     } else {
-//       res.json(tasks);
-//     }
-//   });
-// });
+// goals schema 
+const Goal = require('./GoalsSchema');
 
-// // Get a specific task by ID
-// router.get('/tasks/:id', (req, res) => {
-//   const taskId = req.params.id;
+// Create a goal
+router.post('/goals', (req, res) => {
+  const { goaltopic, timePerday, actionForgoal, totalTime } = req.body;
 
-//   Task.findById(taskId, (err, task) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Failed to fetch task' });
-//     } else if (!task) {
-//       res.status(404).json({ error: 'Task not found' });
-//     } else {
-//       res.json(task);
-//     }
-//   });
-// });
+  const newGoal = new Goal({
+    goaltopic,
+    timePerday,
+    actionForgoal,
+    totalTime,
+  });
+  newGoal.save((err, goal) => {
+    if (err) {
+      res.status(500).json({ error: 'Failed to create a goal' });
+    } else {
+      res.status(201).json(goal);
+    }
+  });
+});
+router.get('/goals/:id', (req, res) => {
+  const goalId = req.params.id;
 
-// // Update a task
-// router.put('/tasks/:id', (req, res) => {
-//   const taskId = req.params.id;
-//   const { title, time, isCompleted } = req.body;
+  Goal.findById(goalId, (err, goal) => {
+    if (err) {
+      res.status(500).json({ error: 'Failed to fetch goal' });
+    } else if (!goal) {
+      res.status(404).json({ error: 'Goal not found' });
+    } else {
+      res.json(goal);
+    }
+  });
+});
 
-//   Task.findByIdAndUpdate(
-//     taskId,
-//     { title, Time: time, IsCompleted: isCompleted },
-//     { new: true },
-//     (err, updatedTask) => {
-//       if (err) {
-//         res.status(500).json({ error: 'Failed to update task' });
-//       } else if (!updatedTask) {
-//         res.status(404).json({ error: 'Task not found' });
-//       } else {
-//         res.json(updatedTask);
-//       }
-//     }
-//   );
-// });
 
-// Delete a task
-// router.delete('/tasks/:id', (req, res) => {
-//   const taskId = req.params.id;
+module.exports = router;
 
-//   Task.findByIdAndRemove(taskId, (err, deletedTask) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Failed to delete task' });
-//     } else if (!deletedTask) {
-//       res.status(404).json({ error: 'Task not found' });
-//     } else {
-//       res.json({ message: 'Task deleted successfully' });
-//     }
-//   });
-// });
+
+
+
+
+
+
+
 
 module.exports = router;
 
