@@ -14,16 +14,26 @@
   <body>
     <form action="/goal" method="POST">
       <div class="mb-3">
-        <label for="updateTask" class="form-label">Update your Task</label>
+        <label for="addTask" class="form-label">Add your Task</label>
         <input
           type="text"
           class="form-control"
-          id="updateTask"
-          name="updateTask"
+          id="addTask"
+          name="addTask"
           required
         />
+        <div class="mb-3">
+          <label for="timeFortask" class="form-label">Time</label>
+          <input
+            type="number"
+            class="form-control"
+            id="timeFortask"
+            name="timeFortask"
+            required
+          />
+        </div>
       </div>
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <button type="submit" class="btn btn-primary">Update</button>
   </body>
 </html>

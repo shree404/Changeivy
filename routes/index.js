@@ -31,10 +31,10 @@ router.get("/contactUs", function (req, res, next) {
 });
 
 //task schema
-const Task = require('../models/tasks');
+const Task = require("../models/tasks");
 
 // Create a task
-router.post('/tasks', (req, res) => {
+router.post("/tasks", (req, res) => {
   const { title, time, isCompleted } = req.body;
 
   const newTask = new Task({
@@ -45,34 +45,32 @@ router.post('/tasks', (req, res) => {
 
   newTask.save((err, task) => {
     if (err) {
-      res.status(500).json({ error: 'Failed to create a task' });
+      res.status(500).json({ error: "Failed to create a task" });
     } else {
       res.status(201).json(task);
     }
   });
 });
 
-
-router.get('/tasks/complete', (req, res) => {
+router.get("/tasks/complete", (req, res) => {
   const { isCompleted } = req.query;
 
   const query = isCompleted ? { IsCompleted: true } : {};
 
   Task.find(query, (err, tasks) => {
     if (err) {
-      res.status(500).json({ error: 'Failed to fetch tasks' });
+      res.status(500).json({ error: "Failed to fetch tasks" });
     } else {
       res.json(tasks);
     }
   });
 });
 
-
-// goals schema 
-const Goal = require('../models/goals');
+// goals schema
+const Goal = require("../models/goals");
 
 // Create a goal
-router.post('/goals', (req, res) => {
+router.post("/goals", (req, res) => {
   const { goaltopic, timePerday, actionForgoal, totalTime } = req.body;
 
   const newGoal = new Goal({
@@ -83,20 +81,20 @@ router.post('/goals', (req, res) => {
   });
   newGoal.save((err, goal) => {
     if (err) {
-      res.status(500).json({ error: 'Failed to create a goal' });
+      res.status(500).json({ error: "Failed to create a goal" });
     } else {
       res.status(201).json(goal);
     }
   });
 });
-router.get('/goals/:id', (req, res) => {
+router.get("/goals/:id", (req, res) => {
   const goalId = req.params.id;
 
   Goal.findById(goalId, (err, goal) => {
     if (err) {
-      res.status(500).json({ error: 'Failed to fetch goal' });
+      res.status(500).json({ error: "Failed to fetch goal" });
     } else if (!goal) {
-      res.status(404).json({ error: 'Goal not found' });
+      res.status(404).json({ error: "Goal not found" });
     } else {
       res.json(goal);
     }
@@ -129,16 +127,8 @@ router.get("/goal", function (req, res, next) {
 router.get("/task", function (req, res, next) {
   res.render("task");
 });
+
+router.get("/TaskAndChallenge", function (req, res, next) {
+  res.render("TaskAndChallenge");
+});
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
