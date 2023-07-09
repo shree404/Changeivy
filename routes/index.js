@@ -46,4 +46,17 @@ router.get("/dashboard", function (req, res, next) {
  await forSignUp.insertMany(expenses);
  res.redirect("/dashboard");
   });
+
+  router.get('/dashboard', function(req, res) {
+    // Assuming you have the username and profile object available
+    const data= {
+      name: 'John Doe',
+      email: 'john@example.com',
+      age: 30
+      // Add more profile details as needed
+    };
+  
+    res.render('profile', { username: username, profile: profile });
+  });
+  
 module.exports = router;
