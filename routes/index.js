@@ -34,29 +34,23 @@ router.get("/dashboard", function (req, res, next) {
   res.render("dashboard");
 });
 
- router.post("/submit", async function (req, res, next) {
-   let forSignUp = new forSignUp ({
-     Username: req.body.username,
-     Email : req.body.email,
-     Password: req.body.password,
-      ConfirmPassword: req.body.confirmpassword,
-      DateOfBirth: req.body.dateofbirth,
-     Country: req.body.country
-   })
- await forSignUp.insertMany(expenses);
- res.redirect("/dashboard");
+router.post("/submit", async function (req, res, next) {
+  let forSignUp = new forSignUp({
+    Username: req.body.username,
+    Email: req.body.email,
+    Password: req.body.password,
+    ConfirmPassword: req.body.confirmpassword,
+    DateOfBirth: req.body.dateofbirth,
+    Country: req.body.country,
   });
 
-  router.get('/dashboard', function(req, res) {
-    // Assuming you have the username and profile object available
-    const data= {
-      name: 'John Doe',
-      email: 'john@example.com',
-      age: 30
-      // Add more profile details as needed
-    };
-  
-    res.render('profile', { username: username, profile: profile });
-  });
-  
+  console.log(forSignUp);
+  await forSignUp.insertMany(expenses);
+  res.redirect("/dashboard", { forSignUp });
+});
+
+router.get("/goal", function (req, res, next) {
+  res.render("goal");
+});
+
 module.exports = router;
