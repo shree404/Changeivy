@@ -4,5 +4,75 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+/* CSS for the link opacity classes */
+.link-opacity-10 {
+  opacity: 0.1;
+}
+
+.link-opacity-25 {
+  opacity: 0.25;
+}
+
+.link-opacity-50 {
+  opacity: 0.5;
+}
+
+.link-opacity-75 {
+  opacity: 0.75;
+}
+
+.link-opacity-100 {
+  opacity: 1;
+}
+
+/* CSS for the main heading */
+h1 {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* CSS for the welcome paragraph */
+p {
+  color: #555;
+  font-size: 18px;
+}
+
+/* CSS for the background image */
+img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* CSS for the subheadings */
+h3,
+h4 {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* CSS for the unordered list */
+ul {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 10px;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* CSS for the navigation links */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
