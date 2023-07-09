@@ -69,7 +69,7 @@ router.get('/tasks/complete', (req, res) => {
 
 
 // goals schema 
-const Goal = require('./GoalsSchema');
+const Goal = require('../models/goals');
 
 // Create a goal
 router.post('/goals', (req, res) => {
